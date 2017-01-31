@@ -27,9 +27,10 @@ class MimeDbServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app['mime-db'] = $this->app->share(function($app)
-        {
+        $this->app->singleton('mime-db', function(){
+
             return new MimeDb;
+
         });
     }
 
